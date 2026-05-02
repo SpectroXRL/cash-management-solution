@@ -1,0 +1,6 @@
+@CashManagementSolution.Api_HostAddress = http://localhost:5178
+
+GET {{CashManagementSolution.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

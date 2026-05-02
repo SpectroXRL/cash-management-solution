@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashManagementSolution.Api", "CashManagementSolution.Api\CashManagementSolution.Api.csproj", "{88BF8906-541F-E388-E7D4-735008D27ADD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88BF8906-541F-E388-E7D4-735008D27ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BF8906-541F-E388-E7D4-735008D27ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BF8906-541F-E388-E7D4-735008D27ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BF8906-541F-E388-E7D4-735008D27ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70A78B31-511B-475B-B152-E2146B2D2741}
+	EndGlobalSection
+EndGlobal
