@@ -6,13 +6,6 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-app.Use(async (context, next) =>
-{
-    Console.WriteLine($"--> Request: {context.Request.Method} {context.Request.Path}");
-    await next(context);
-    Console.WriteLine($"<-- Response: {context.Response.StatusCode}");
-});
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
