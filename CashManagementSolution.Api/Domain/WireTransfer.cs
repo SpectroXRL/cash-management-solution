@@ -9,7 +9,11 @@ public class WireTransfer
     public WireTransferStatus Status { get; private set; }
     public DateTime SubmittedAt { get; private set; }
 
-    private WireTransfer() { }
+    private WireTransfer()
+    {
+        FromAccountId = null!;
+        ToAccountId = null!;
+    }
 
     public static WireTransfer Submit(string fromAccountId, string toAccountId, decimal amount)
     {
