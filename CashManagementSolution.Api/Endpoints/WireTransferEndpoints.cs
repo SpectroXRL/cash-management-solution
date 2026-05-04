@@ -15,6 +15,12 @@ public static class WireTransferEndpoints
             return Results.CreatedAtRoute("GetWireTransfer", new { id = result.Id }, result);
         });
 
+        group.MapPost("/{id:guid}/validate", async (Guid id, WireTransferService service) =>
+        {
+            var result = await service.ValidateAsync(id);
+            return result is null ? Results.NotFound() : Results.Ok(result);
+        });
+
         group.MapGet("/{id:guid}", async (Guid id, WireTransferService service) =>
         {
             var result = await service.GetByIdAsync(id);
