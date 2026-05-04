@@ -1,6 +1,8 @@
 using CashManagementSolution.Api;
+using CashManagementSolution.Api.Domain;
 using CashManagementSolution.Api.Endpoints;
 using CashManagementSolution.Api.Services;
+using CashManagementSolution.Api.Workers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<CashManagementDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddScoped<WireTransferService>();
+builder.Services.AddHostedService<WireTransferProcessingWorker>();
 
 var app = builder.Build();
 
