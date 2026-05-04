@@ -1,7 +1,14 @@
+using CashManagementSolution.Api.Domain.Events;
+
 namespace CashManagementSolution.Api.Domain;
 
 public class WireTransfer
 {
+    private readonly List<IDomainEvent> _domainEvents = [];
+
+    public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+    public void ClearDomainEvents() => _domainEvents.Clear();
+
     public Guid Id { get; private set; }
     public string FromAccountId { get; private set; }
     public string ToAccountId { get; private set; }
@@ -17,7 +24,7 @@ public class WireTransfer
 
     public static WireTransfer Submit(string fromAccountId, string toAccountId, decimal amount)
     {
-        return new WireTransfer
+        var transfer = new WireTransfer
         {
             Id = Guid.NewGuid(),
             FromAccountId = fromAccountId,
@@ -26,6 +33,10 @@ public class WireTransfer
             Status = WireTransferStatus.Submitted,
             SubmittedAt = DateTime.UtcNow
         };
+
+        transfer._domainEvents.Add(new WireTransferSubmitted(transfer.Id, transfer.SubmittedAt));
+
+        return transfer;
     }
 
     public void Validate()
